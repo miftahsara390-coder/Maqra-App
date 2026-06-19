@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+
+<html class="light" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Maqra - Bibliothèque Marocaine</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@600;700&amp;family=Noto+Sans:wght@400;500;600&amp;family=Amiri:wght@400;700&amp;family=Reenie+Beanie&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary": "#4734c3", 
+                    "secondary": "#9f402d", 
+                    "tertiary": "#005a40", 
+                    "background": "#fdf9f3", 
+                    "surface": "#fdf9f3",
+                    "surface-container": "#f1ede7",
+                    "surface-container-low": "#f7f3ed",
+                    "surface-container-high": "#ebe8e2",
+                    "surface-container-highest": "#e6e2dc",
+                    "on-surface": "#1c1c18",
+                    "on-surface-variant": "#474554",
+                    "outline": "#787586",
+                    "gold": "#D4AF37"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "2xl": "1.5rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "lg": "24px",
+                    "xs": "4px",
+                    "margin-mobile": "20px",
+                    "unit": "4px",
+                    "sm": "8px",
+                    "xl": "32px",
+                    "gutter": "16px",
+                    "md": "16px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Noto Sans"],
+                    "display-lg": ["Hanken Grotesk"],
+                    "headline-sm": ["Hanken Grotesk"],
+                    "label-md": ["Noto Sans"],
+                    "label-sm": ["Noto Sans"],
+                    "body-md": ["Noto Sans"],
+                    "headline-md": ["Hanken Grotesk"],
+                    "arabic": ["Amiri", "serif"],
+                    "calligraphy": ["Reenie Beanie", "cursive"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        /* Traditional Moroccan Zellige Pattern - Assil inspired */
+        .zellige-main-bg {
+            background-color: #fdf9f3;
+            background-image: 
+                radial-gradient(circle at 100% 150%, #fdf9f3 24%, #f1ede7 25%, #f1ede7 28%, #fdf9f3 29%, #fdf9f3 36%, #f1ede7 36%, #f1ede7 40%, transparent 40%, transparent),
+                radial-gradient(circle at 0    150%, #fdf9f3 24%, #f1ede7 25%, #f1ede7 28%, #fdf9f3 29%, #fdf9f3 36%, #f1ede7 36%, #f1ede7 40%, transparent 40%, transparent),
+                radial-gradient(circle at 50%  100%, #f1ede7 10%, #fdf9f3 11%, #fdf9f3 23%, #f1ede7 24%, #f1ede7 30%, #fdf9f3 31%, #fdf9f3 43%, #f1ede7 44%, #f1ede7 50%, transparent 50%, transparent),
+                radial-gradient(circle at 100% 50%, #f1ede7 5%, #fdf9f3 6%, #fdf9f3 15%, #f1ede7 16%, #f1ede7 20%, #fdf9f3 21%, #fdf9f3 30%, #f1ede7 31%, #f1ede7 35%, transparent 35%, transparent),
+                radial-gradient(circle at 0    50%, #f1ede7 5%, #fdf9f3 6%, #fdf9f3 15%, #f1ede7 16%, #f1ede7 20%, #fdf9f3 21%, #fdf9f3 30%, #f1ede7 31%, #f1ede7 35%, transparent 35%, transparent),
+                radial-gradient(circle at 50%  0%, #fdf9f3 24%, #f1ede7 25%, #f1ede7 28%, #fdf9f3 29%, #fdf9f3 36%, #f1ede7 36%, #f1ede7 40%, transparent 40%, transparent);
+            background-size: 60px 100px;
+            background-attachment: fixed;
+        }
+
+        .zellige-header {
+            background-image: radial-gradient(#4734c3 0.5px, transparent 0.5px), radial-gradient(#4734c3 0.5px, #FDF9F3 0.5px);
+            background-size: 20px 20px;
+            background-position: 0 0,10px 10px;
+            opacity: 0.05;
+        }
+
+        .zellige-pattern {
+            background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
+            opacity: 0.03;
+        }
+
+        .moorish-arch {
+            clip-path: ellipse(100% 85% at 50% 100%);
+        }
+
+        .tadelakt-texture {
+            background-image: url("https://www.transparenttextures.com/patterns/concrete-wall.png");
+            background-blend-mode: overlay;
+        }
+
+        .gold-foil {
+            background: linear-gradient(135deg, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .custom-scroll::-webkit-scrollbar {
+            height: 3px;
+        }
+        .custom-scroll::-webkit-scrollbar-thumb {
+            background: #D4AF37;
+            border-radius: 10px;
+        }
+
+        .progress-ring-circle {
+            transition: stroke-dashoffset 0.8s ease-in-out;
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
+        }
+    </style>
+</head>
+<body class="zellige-main-bg text-on-surface font-body-md min-h-screen pb-24">
+<!-- TopAppBar -->
+<header class="bg-surface/90 backdrop-blur-sm sticky top-0 z-50 flex justify-between items-center w-full px-margin-mobile h-16 border-b border-outline/10 overflow-hidden">
+<div class="absolute inset-0 zellige-header pointer-events-none"></div>
+<div class="flex items-center gap-3 relative z-10">
+<button class="material-symbols-outlined text-primary p-2 rounded-full active:scale-95 transition-transform">menu</button>
+<div class="flex flex-col -space-y-1">
+<span class="font-calligraphy text-2xl text-secondary leading-none">مقرأ</span>
+<h1 class="font-display-lg text-2xl text-primary tracking-tight font-bold">Maqra</h1>
+</div>
+</div>
+<div class="relative z-10">
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary/20 shadow-sm">
+<img alt="User Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDeEAKWu7ahhskiaNP9MUDNdAA9Qlke5dIorNKFuQxoAsKBdV8FP8KJLp4mvof0c9B4ZNGL2QwOq0HSIL49sRzevRQAYFHmuiL6cHfUzBfrFEW2wDWuO80QKZx8zYvZdJRpjsh1XLQmp4o8I0DUIuF9pM6s1WHKxBXgZZRMFpYaw3m51LuYcPOrxXBQ_OB07GjwPwwd9yxFTiOgpmvXf3z4dMUjGUhToZ-s7jJn9wZLWQKdRA9SDhKvhG5s4jWT5pWsY-IvtlLEHlQ"/>
+</div>
+</div>
+</header>
+<main class="px-margin-mobile pt-md space-y-xl relative z-10">
+<!-- Annual Goal Section -->
+<section class="relative">
+<div class="absolute inset-0 bg-primary/5 rounded-2xl zellige-pattern"></div>
+<div class="relative bg-white/95 backdrop-blur-sm p-lg rounded-2xl shadow-xl border border-outline/10 flex flex-col items-center gap-md overflow-hidden tadelakt-texture">
+<div class="absolute top-0 left-1/2 -translate-x-1/2 w-48 h-12 bg-primary/10 moorish-arch opacity-30"></div>
+<div class="relative w-44 h-44">
+<svg class="w-full h-full" viewbox="0 0 100 100">
+<circle class="text-surface-container-high" cx="50" cy="50" fill="transparent" r="44" stroke="currentColor" stroke-width="6"></circle>
+<circle class="progress-ring-circle text-primary" cx="50" cy="50" fill="transparent" r="44" stroke="currentColor" stroke-dasharray="276.46" stroke-dashoffset="143.76" stroke-linecap="round" stroke-width="6"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="font-display-lg text-4xl text-primary font-bold">12/25</span>
+<span class="font-label-sm text-outline uppercase tracking-[0.2em] text-[10px]">Livres Lus</span>
+</div>
+<span class="material-symbols-outlined absolute top-2 right-2 text-gold text-sm opacity-60">star_outline</span>
+</div>
+<div class="text-center relative z-10">
+<h2 class="font-headline-sm text-on-surface flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-secondary">auto_stories</span>
+                        Objectif Annuel
+                    </h2>
+<p class="font-body-md text-on-surface-variant px-4">Progression de <span class="text-primary font-bold">48%</span> • Sur la voie de l'excellence</p>
+</div>
+</div>
+</section>
+<!-- Stats Grid -->
+<section class="grid grid-cols-3 gap-md">
+<div class="bg-surface-container-low/95 backdrop-blur-sm p-md rounded-xl flex flex-col items-center justify-center text-center border-b-4 border-secondary/30 shadow-sm relative overflow-hidden">
+<div class="absolute inset-0 zellige-pattern opacity-10"></div>
+<span class="font-headline-md text-primary font-bold">142</span>
+<span class="font-label-sm text-on-surface-variant uppercase text-[10px] tracking-wider">Total</span>
+</div>
+<div class="bg-surface-container-low/95 backdrop-blur-sm p-md rounded-xl flex flex-col items-center justify-center text-center border-b-4 border-tertiary/30 shadow-sm relative overflow-hidden">
+<div class="absolute inset-0 zellige-pattern opacity-10"></div>
+<span class="font-headline-md text-primary font-bold">3.4k</span>
+<span class="font-label-sm text-on-surface-variant uppercase text-[10px] tracking-wider">Pages</span>
+</div>
+<div class="bg-surface-container-low/95 backdrop-blur-sm p-md rounded-xl flex flex-col items-center justify-center text-center border-b-4 border-gold/30 shadow-sm relative overflow-hidden">
+<div class="absolute inset-0 zellige-pattern opacity-10"></div>
+<span class="font-headline-md text-secondary font-bold">3</span>
+<span class="font-label-sm text-on-surface-variant uppercase text-[10px] tracking-wider">Mois</span>
+</div>
+</section>
+<!-- Filters Section -->
+<section class="flex gap-sm overflow-x-auto pb-xs custom-scroll">
+<button class="bg-primary text-white px-6 py-2 rounded-full font-label-md whitespace-nowrap shadow-md active:scale-95 transition-transform">Tous</button>
+<button class="bg-white/80 backdrop-blur-sm text-on-surface-variant px-6 py-2 rounded-full font-label-md whitespace-nowrap border border-outline/10 hover:bg-surface-container-highest transition-colors">العربية</button>
+<button class="bg-white/80 backdrop-blur-sm text-on-surface-variant px-6 py-2 rounded-full font-label-md whitespace-nowrap border border-outline/10 hover:bg-surface-container-highest transition-colors">Français</button>
+<button class="bg-white/80 backdrop-blur-sm text-on-surface-variant px-6 py-2 rounded-full font-label-md whitespace-nowrap border border-outline/10 hover:bg-surface-container-highest transition-colors">Tamazight</button>
+</section>
+<!-- Book List -->
+<section class="space-y-md">
+<div class="flex justify-between items-end mb-md">
+<div>
+<h3 class="font-headline-md text-on-surface">Ma Collection</h3>
+<div class="h-1 w-12 bg-secondary rounded-full mt-1"></div>
+</div>
+<button class="text-primary font-label-md flex items-center hover:underline">
+                    Explorer <span class="material-symbols-outlined ml-1 text-sm">arrow_forward</span>
+</button>
+</div>
+<!-- Book Card 1 -->
+<div class="flex bg-white/95 backdrop-blur-sm p-3 rounded-2xl gap-md shadow-sm border border-outline/10 relative overflow-hidden group active:scale-[0.98] transition-all duration-200 tadelakt-texture">
+<div class="absolute top-0 right-0 w-16 h-16 bg-primary/5 moorish-arch rotate-45 -translate-y-8 translate-x-8"></div>
+<div class="w-24 h-32 flex-shrink-0 rounded-lg overflow-hidden shadow-lg transform group-hover:scale-105 transition-transform">
+<img alt="Le Pain Nu" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvwX_I-aVgN7c_gglvnIc30B2hrSdrigR1FmolKUmdpomLbzDK_vZayrcGdLL-Ka3c8mnPXH4knx0OmTMIqVSHnSs3XgtQPV2U_I23053DTJtPAgnx162kvDPU0Ffgv7NHYwlC_1ZrW3k6KuAJ5umCa64-3SRdMqBTanLE9M6Su9qOkjYYdxG21vd0DKjrIey6zye4r_pzYKsN--PiltrIlIqK1lmZ5tXKBh_xiz_InUOX7NecQrATRRrznklsCxky_2U-yWfU4ms"/>
+</div>
+<div class="flex flex-col justify-between py-1 flex-grow relative">
+<div>
+<div class="flex justify-between items-start">
+<h4 class="font-headline-sm text-primary leading-tight">Le Pain Nu</h4>
+<span class="bg-tertiary/10 text-tertiary px-2 py-0.5 rounded text-[10px] font-bold uppercase border border-tertiary/20">En Cours</span>
+</div>
+<p class="font-body-md text-on-surface-variant opacity-80">Mohamed Choukri</p>
+</div>
+<div class="flex justify-between items-end">
+<span class="font-label-sm text-outline-variant bg-surface-container px-2 py-1 rounded text-[10px] border border-outline/5">FRANÇAIS</span>
+<div class="w-24 bg-surface-container-high rounded-full h-1.5 mb-1 overflow-hidden">
+<div class="bg-primary h-full w-[65%] rounded-full shadow-[0_0_8px_rgba(71,52,195,0.4)]"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Book Card 2 -->
+<div class="flex bg-white/95 backdrop-blur-sm p-3 rounded-2xl gap-md shadow-sm border border-gold/20 relative overflow-hidden group active:scale-[0.98] transition-all duration-200 tadelakt-texture">
+<div class="absolute inset-0 zellige-pattern opacity-5"></div>
+<div class="w-24 h-32 flex-shrink-0 rounded-lg overflow-hidden shadow-lg transform group-hover:scale-105 transition-transform border border-gold/10">
+<img alt="La Civilisation, ma Mère !" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCja2ziCOHwCuPfzVO9OoldICxfbPxCJK77cRmzjXcNfN0knl8z79xyjZvP2bMToKp5pi68PhNnzRno6yDnAuUlpjN8Vn5660VwbbXgM51NXCMAMek8v-zhDdB-NNReZQOWenbdXSJxkyBrgNRJcYTXa-vrMPk6WFZdUbPxg9o0KgQzIapM-HDaESXaHAlV8Wm7eYVsAst0nl7-6x9ec9BhFO0cbQgep7eNJkTd_pZWMPZHXhrQrqY1r19lMgB2ik_pRZDWYkv0QUo"/>
+</div>
+<div class="flex flex-col justify-between py-1 flex-grow">
+<div>
+<div class="flex justify-between items-start">
+<h4 class="font-headline-sm text-primary leading-tight">La Civilisation...</h4>
+<span class="bg-secondary text-white px-2 py-0.5 rounded text-[10px] font-bold uppercase shadow-sm">À Lire</span>
+</div>
+<p class="font-body-md text-on-surface-variant opacity-80">Driss Chraïbi</p>
+</div>
+<div class="flex justify-between items-end">
+<span class="font-label-sm gold-foil font-bold text-[10px] tracking-widest">PREMIUM</span>
+<div class="w-24 bg-surface-container-high rounded-full h-1.5 mb-1 overflow-hidden">
+<div class="bg-outline h-full w-[0%] rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Book Card 3 -->
+<div class="flex bg-white/95 backdrop-blur-sm p-3 rounded-2xl gap-md shadow-sm border border-outline/10 relative overflow-hidden group active:scale-[0.98] transition-all duration-200 tadelakt-texture" dir="rtl">
+<div class="w-24 h-32 flex-shrink-0 rounded-lg overflow-hidden shadow-lg transform group-hover:scale-105 transition-transform">
+<img alt="موسم الهجرة إلى الشمال" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCj-LTohl4Sw8Z3I2CGyXm6udewpcXS2KsJrqnMM3M0WQM51EuZlcJkb4DtibpPN26LpbgapHHkttGMOcYkr3636Ctq-4P-60bMGsR05Cpjw308i0SwfCrGEmNh9iXP1vnTz-38lvwO92Wo8NzAjeZcIvNs8R4ev6iCADEG6f-fqOiVmsMnFm4A1wrDdCv42vejA7paatMbsM2kjFREeNDoWY9CoPHbNUPmhjiajVAqeuJMLIsKkj5OK6LlEqUqF3RjU8uRyw2NIZs"/>
+</div>
+<div class="flex flex-col justify-between py-1 flex-grow text-right">
+<div>
+<div class="flex justify-between items-start flex-row-reverse">
+<h4 class="font-arabic text-2xl text-primary leading-tight font-bold">موسم الهجرة إلى الشمال</h4>
+<span class="bg-tertiary text-white px-2 py-0.5 rounded text-[10px] font-bold uppercase">تمت</span>
+</div>
+<p class="font-arabic text-lg text-on-surface-variant mt-1">الطيب صالح</p>
+</div>
+<div class="flex justify-between items-end flex-row-reverse">
+<span class="font-label-sm text-outline-variant bg-surface-container px-2 py-1 rounded text-[10px]">العربية</span>
+<div class="w-24 bg-surface-container-high rounded-full h-1.5 mb-1 overflow-hidden">
+<div class="bg-tertiary h-full w-[100%] rounded-full shadow-[0_0_8px_rgba(0,90,64,0.4)]"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- FAB -->
+<button class="fixed bottom-24 right-margin-mobile w-16 h-16 bg-secondary text-white rounded-full flex items-center justify-center shadow-2xl active:scale-90 transition-transform duration-200 z-50 border-4 border-white">
+<span class="material-symbols-outlined text-[36px]">add</span>
+</button>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center pt-3 pb-safe px-4 bg-surface/95 backdrop-blur-md border-t border-outline/10 shadow-[0px_-8px_30px_rgba(0,0,0,0.06)] rounded-t-[2.5rem]">
+<div class="absolute inset-0 zellige-pattern opacity-5 pointer-events-none"></div>
+<a class="flex flex-col items-center justify-center text-primary relative px-6 py-2 group" href="#">
+<div class="absolute -top-3 w-12 h-1 bg-primary rounded-full group-hover:w-16 transition-all"></div>
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">auto_stories</span>
+<span class="font-label-sm text-[10px] mt-1 font-bold uppercase tracking-tighter">Library</span>
+</a>
+<a class="flex flex-col items-center justify-center text-outline hover:text-primary transition-all px-6 py-2" href="#">
+<span class="material-symbols-outlined text-2xl">timer</span>
+<span class="font-label-sm text-[10px] mt-1 uppercase tracking-tighter">Timer</span>
+</a>
+<a class="flex flex-col items-center justify-center text-outline hover:text-primary transition-all px-6 py-2" href="#">
+<span class="material-symbols-outlined text-2xl">leaderboard</span>
+<span class="font-label-sm text-[10px] mt-1 uppercase tracking-tighter">Stats</span>
+</a>
+</nav>
+<script>
+        const filterButtons = document.querySelectorAll('section.flex button');
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterButtons.forEach(b => {
+                    b.classList.remove('bg-primary', 'text-white', 'shadow-md');
+                    b.classList.add('bg-white/80', 'text-on-surface-variant', 'border', 'border-outline/10');
+                });
+                btn.classList.add('bg-primary', 'text-white', 'shadow-md');
+                btn.classList.remove('bg-white/80', 'text-on-surface-variant', 'border', 'border-outline/10');
+            });
+        });
+
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-8');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section > div.flex, section.grid > div, section > div.relative').forEach(el => {
+            el.classList.add('opacity-0', 'translate-y-8', 'transition-all', 'duration-700', 'ease-out');
+            observer.observe(el);
+        });
+    </script>
+</body></html>

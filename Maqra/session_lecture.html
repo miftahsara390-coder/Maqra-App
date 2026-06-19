@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+
+<html class="light" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&amp;family=Noto+Sans:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@100..900&amp;family=Noto+Sans:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-container": "#6050dc",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-fixed": "#e4dfff",
+                    "outline-variant": "#c8c4d7",
+                    "surface-tint": "#5847d3",
+                    "on-primary-container": "#e7e2ff",
+                    "tertiary-container": "#007554",
+                    "surface": "#fdf9f3",
+                    "on-tertiary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "on-error-container": "#93000a",
+                    "surface-variant": "#e6e2dc",
+                    "secondary-container": "#fd876f",
+                    "secondary-fixed": "#ffdad3",
+                    "inverse-on-surface": "#f4f0ea",
+                    "tertiary": "#005a40",
+                    "on-secondary": "#ffffff",
+                    "tertiary-fixed-dim": "#69dbad",
+                    "on-primary-fixed": "#160066",
+                    "error": "#ba1a1a",
+                    "on-primary": "#ffffff",
+                    "on-secondary-container": "#732010",
+                    "outline": "#787586",
+                    "primary-fixed-dim": "#c6bfff",
+                    "tertiary-fixed": "#86f8c8",
+                    "surface-container-high": "#ebe8e2",
+                    "on-tertiary-fixed": "#002115",
+                    "secondary-fixed-dim": "#ffb4a5",
+                    "on-error": "#ffffff",
+                    "on-background": "#1c1c18",
+                    "surface-container-highest": "#e6e2dc",
+                    "on-primary-fixed-variant": "#3f29bb",
+                    "on-surface-variant": "#474554",
+                    "on-tertiary-container": "#89fbcb",
+                    "on-secondary-fixed-variant": "#802918",
+                    "on-surface": "#1c1c18",
+                    "background": "#fdf9f3",
+                    "surface-bright": "#fdf9f3",
+                    "surface-container-low": "#f7f3ed",
+                    "surface-dim": "#dddad4",
+                    "on-tertiary-fixed-variant": "#005139",
+                    "inverse-surface": "#31302d",
+                    "secondary": "#9f402d",
+                    "surface-container": "#f1ede7",
+                    "primary": "#4734c3",
+                    "inverse-primary": "#c6bfff",
+                    "on-secondary-fixed": "#3e0500"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "lg": "24px",
+                    "xs": "4px",
+                    "margin-mobile": "20px",
+                    "unit": "4px",
+                    "sm": "8px",
+                    "xl": "32px",
+                    "gutter": "16px",
+                    "md": "16px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Noto Sans"],
+                    "display-lg": ["Hanken Grotesk"],
+                    "headline-sm": ["Hanken Grotesk"],
+                    "label-md": ["Noto Sans"],
+                    "label-sm": ["Noto Sans"],
+                    "body-md": ["Noto Sans"],
+                    "headline-md": ["Hanken Grotesk"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "display-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .timer-glow {
+            text-shadow: 0 0 20px rgba(71, 52, 195, 0.15);
+        }
+        .zellige-pattern {
+            background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
+            opacity: 0.03;
+        }
+        .assil-zellige {
+            background-color: #fdf9f3;
+            background-image: 
+                radial-gradient(circle at 100% 150%, #fdf9f3 24%, #f1ede7 25%, #f1ede7 28%, #fdf9f3 29%, #fdf9f3 36%, #f1ede7 36%, #f1ede7 40%, transparent 40%, transparent),
+                radial-gradient(circle at 0    150%, #fdf9f3 24%, #f1ede7 25%, #f1ede7 28%, #fdf9f3 29%, #fdf9f3 36%, #f1ede7 36%, #f1ede7 40%, transparent 40%, transparent),
+                radial-gradient(circle at 50%  100%, #f1ede7 10%, #fdf9f3 11%, #fdf9f3 23%, #f1ede7 24%, #f1ede7 30%, #fdf9f3 31%, #fdf9f3 43%, #f1ede7 44%, #f1ede7 50%, #fdf9f3 51%, #fdf9f3 63%, #f1ede7 64%, #f1ede7 71%, transparent 71%, transparent),
+                radial-gradient(circle at 100% 50%, #f1ede7 5%, #fdf9f3 6%, #fdf9f3 15%, #f1ede7 16%, #f1ede7 20%, #fdf9f3 21%, #fdf9f3 30%, #f1ede7 31%, #f1ede7 35%, #fdf9f3 36%, #fdf9f3 45%, #f1ede7 46%, #f1ede7 49%, transparent 49%, transparent),
+                radial-gradient(circle at 0    50%, #f1ede7 5%, #fdf9f3 6%, #fdf9f3 15%, #f1ede7 16%, #f1ede7 20%, #fdf9f3 21%, #fdf9f3 30%, #f1ede7 31%, #f1ede7 35%, #fdf9f3 36%, #fdf9f3 45%, #f1ede7 46%, #f1ede7 49%, transparent 49%, transparent);
+            background-size: 80px 40px;
+        }
+        /* Alternative subtle geometric pattern that feels more authentic for a full page */
+        .page-zellige {
+            background-color: #fdf9f3;
+            background-image: 
+                linear-gradient(30deg, #f7f3ed 12%, transparent 12.5%, transparent 87%, #f7f3ed 87.5%, #f7f3ed),
+                linear-gradient(150deg, #f7f3ed 12%, transparent 12.5%, transparent 87%, #f7f3ed 87.5%, #f7f3ed),
+                linear-gradient(30deg, #f7f3ed 12%, transparent 12.5%, transparent 87%, #f7f3ed 87.5%, #f7f3ed),
+                linear-gradient(150deg, #f7f3ed 12%, transparent 12.5%, transparent 87%, #f7f3ed 87.5%, #f7f3ed),
+                linear-gradient(60deg, #ebe8e2 25%, transparent 25.5%, transparent 75%, #ebe8e2 75.5%, #ebe8e2),
+                linear-gradient(60deg, #ebe8e2 25%, transparent 25.5%, transparent 75%, #ebe8e2 75.5%, #ebe8e2);
+            background-size: 40px 70px;
+            background-position: 0 0, 0 0, 20px 35px, 20px 35px, 0 0, 20px 35px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="page-zellige text-on-surface font-body-md min-h-screen pb-32">
+<!-- Top App Bar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile h-16 bg-surface/80 backdrop-blur-md">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-low transition-colors active:scale-95 duration-150">
+<span class="material-symbols-outlined text-primary">arrow_back</span>
+</button>
+<h1 class="font-display-lg text-display-lg text-primary tracking-tight">Maqra</h1>
+<div class="w-10 h-10 rounded-full overflow-hidden bg-primary-fixed flex items-center justify-center border border-primary/10">
+<img alt="Profile" class="w-full h-full object-cover" data-alt="A professional close-up avatar of a modern Moroccan man with a friendly expression. The background is a soft, sun-drenched cream color with subtle geometric architectural details. The lighting is warm and natural, evoking the peaceful atmosphere of a contemporary Riad interior with high-end aesthetic clarity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9r8YKtSG35JmLveoOFFdC872JmFANXcA54rVnnk-ozEcQK4t-l6LCjIk7ieEKLLwgy8ccM9RJUn1ZhmCoHS1Z67S514f-plAZutHMtuc59TfmtcMMr-6M9Okpf-V6NaWDhIanWS4M_G47RLmElQgHn4t2Yt2DWOvWkbo_eZUdbuU5Rz1bG1EHbxT2mhqI1rciR2FvC5LV11zvosmbw2FIN7_mboF_XIlO0oihgb1pHMx7gpA6G9vVXSuK6xvsiKZ6yIImWPUm0uw"/>
+</div>
+</header>
+<main class="pt-20 px-margin-mobile space-y-xl relative">
+<!-- Book Header Section -->
+<section class="flex flex-col items-center text-center">
+<div class="relative w-48 aspect-[2/3] mb-md group">
+<div class="absolute inset-0 bg-primary-container opacity-10 blur-xl scale-95 group-hover:scale-105 transition-transform duration-500"></div>
+<img alt="Book Cover" class="relative w-full h-full object-cover rounded-xl shadow-lg" data-alt="A high-quality, elegant book cover for a title called 'Le Silence des Sables'. The design features minimalist Moroccan tile patterns in deep navy and gold foil. The cover is displayed in a bright, modern setting with soft afternoon sunlight casting long, gentle shadows across the cream-colored background. The overall mood is sophisticated, literary, and calm." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwdp7xunPb1vGktGxCBNy-PU9bOOLNBODcBXxhFojtWRW0j7s5IyMeRIwU_8C5OaIXV9HuRb2HP5adl0F7geFGg9m4LbvntUfvl7O3lEzm73t17zbcITiSNJLwiP4vJFRy8MuS09wQh3tZRLaXdIRktFMQKOFfxr2l6YtTIHHVgbeszZj5H19pEGIgBpPB1FFsTNX2ROgv65V2gQSlT-hQoCel9hUWRdEXge7qOwV8nEIEFOtvNoOQqjvUkGrUi5ax0u0z70a7AZg"/>
+</div>
+<div class="space-y-xs">
+<h2 class="font-display-lg text-display-lg text-on-surface">Le Silence des Sables</h2>
+<p class="font-body-lg text-on-surface-variant">Yassine El-Fassi</p>
+<div class="flex items-center justify-center gap-1 text-secondary-container">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">star</span>
+<span class="ml-2 font-label-md text-on-surface-variant">4.8</span>
+</div>
+</div>
+</section>
+<!-- Reading Progress Card -->
+<section class="bg-surface-container-lowest/90 backdrop-blur-sm p-md rounded-xl shadow-[0px_4px_20px_rgba(0,0,0,0.04)] border border-surface-variant">
+<div class="flex justify-between items-end mb-sm">
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Progression</h3>
+<p class="font-label-md text-on-surface-variant">Page 150 sur 320</p>
+</div>
+<button class="px-4 py-2 bg-primary-container text-on-primary-container rounded-full font-label-md hover:bg-primary transition-colors active:scale-95 duration-150">
+                    Mettre à jour
+                </button>
+</div>
+<div class="h-3 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary-container rounded-full w-[46.8%]"></div>
+</div>
+</section>
+<!-- Session Timer & Stats Bento Grid -->
+<section class="grid grid-cols-2 gap-md">
+<!-- Timer Card -->
+<div class="col-span-2 bg-surface-container-lowest/90 backdrop-blur-sm p-lg rounded-xl border border-surface-variant relative overflow-hidden">
+<div class="absolute inset-0 zellige-pattern"></div>
+<div class="relative z-10 flex flex-col items-center">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-widest mb-sm">Session Actuelle</span>
+<div class="font-display-lg text-5xl timer-glow text-primary mb-lg" id="timer">00:45:12</div>
+<div class="flex gap-md">
+<button class="w-12 h-12 flex items-center justify-center rounded-full bg-primary-fixed text-primary hover:bg-primary-container hover:text-on-primary-container transition-all active:scale-90">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</button>
+<button class="w-12 h-12 flex items-center justify-center rounded-full bg-surface-container text-on-surface-variant hover:bg-surface-container-high transition-all active:scale-90">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">pause</span>
+</button>
+<button class="w-12 h-12 flex items-center justify-center rounded-full bg-secondary-container text-on-secondary-container hover:bg-secondary transition-all active:scale-90">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">stop</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Stats Blocks -->
+<div class="bg-surface-container-lowest/90 backdrop-blur-sm p-md rounded-xl border border-surface-variant flex flex-col items-center justify-center text-center">
+<span class="material-symbols-outlined text-primary mb-xs">auto_stories</span>
+<span class="font-headline-md text-headline-md text-primary animate-pulse">24</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Pages lues</span>
+</div>
+<div class="bg-surface-container-lowest/90 backdrop-blur-sm p-md rounded-xl border border-surface-variant flex flex-col items-center justify-center text-center">
+<span class="material-symbols-outlined text-tertiary mb-xs">schedule</span>
+<span class="font-headline-md text-headline-md text-tertiary animate-pulse">45m</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Temps écoulé</span>
+</div>
+</section>
+<!-- Main Action -->
+<section class="pt-4">
+<button class="w-full py-lg bg-surface-container-high/80 backdrop-blur-sm border-2 border-dashed border-outline-variant text-on-surface-variant font-headline-sm rounded-xl hover:bg-surface-variant transition-colors flex items-center justify-center gap-md active:scale-[0.98]">
+<span class="material-symbols-outlined">check_circle</span>
+                Marquer comme terminé
+            </button>
+</section>
+</main>
+<!-- Bottom Navigation Bar (Contextual Check: Detail Page, but primary destination) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center pt-2 pb-6 px-4 bg-surface/90 backdrop-blur-md shadow-[0px_-4px_20px_rgba(0,0,0,0.04)] rounded-t-xl border-t border-surface-variant/30">
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:text-primary transition-transform active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined">auto_stories</span>
+<span class="font-label-sm text-label-sm">Library</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 active:scale-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">timer</span>
+<span class="font-label-sm text-label-sm">Timer</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:text-primary transition-transform active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined">leaderboard</span>
+<span class="font-label-sm text-label-sm">Stats</span>
+</a>
+</nav>
+<script>
+        // Simple Micro-interaction for the timer display
+        let seconds = 2712; // Starting at 00:45:12
+        const timerElement = document.getElementById('timer');
+
+        function formatTime(s) {
+            const h = Math.floor(s / 3600);
+            const m = Math.floor((s % 3600) / 60);
+            const sec = s % 60;
+            return [h, m, sec].map(v => v < 10 ? "0" + v : v).join(":");
+        }
+
+        setInterval(() => {
+            // Only simulation for the UI
+            // seconds++;
+            // timerElement.textContent = formatTime(seconds);
+        }, 1000);
+
+        // Active state simulation for buttons
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('touchstart', () => btn.classList.add('scale-95'));
+            btn.addEventListener('touchend', () => btn.classList.remove('scale-95'));
+        });
+    </script>
+</body></html>

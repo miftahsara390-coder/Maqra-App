@@ -1,4 +1,4 @@
-export type Language = 'ar' | 'fr' | 'amz';
+export type Language = 'ar' | 'fr' | 'amz' | 'en';
 export type ReadStatus = 'to_read' | 'reading' | 'completed';
 
 export interface Book {
@@ -6,7 +6,7 @@ export interface Book {
   title: string;
   author: string;
   coverColor: string; // used as placeholder color when no image
-  coverImage?: string;
+  coverImage?: any;
   language: Language;
   status: ReadStatus;
   totalPages: number;

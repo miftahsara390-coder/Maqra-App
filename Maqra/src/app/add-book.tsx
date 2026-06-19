@@ -21,7 +21,12 @@ import {
   SafeAreaView,
   Platform,
   StatusBar,
+  Alert,
+  Image,
 } from 'react-native';
+import * as ImagePicker from 'expo-image-picker';
+import { useRouter } from 'expo-router';
+import { useBookStore } from '../store/useBookStore';
 import { Colors, Radii, Shadows, Spacing } from '@/constants/colors';
 import type { Language, ReadStatus } from '@/types/book';
 import { LANGUAGE_LABELS, STATUS_LABELS } from '@/constants/languages';
@@ -36,12 +41,49 @@ const COVER_PALETTE = [
 ];
 
 export default function AddBookScreen() {
+  const router = useRouter();
+  const { addBook } = useBookStore();
+
   const [title,    setTitle]    = useState('');
   const [author,   setAuthor]   = useState('');
   const [pages,    setPages]    = useState('');
   const [language, setLanguage] = useState<Language>('fr');
   const [status,   setStatus]   = useState<ReadStatus>('to_read');
   const [cover,    setCover]    = useState(COVER_PALETTE[0]);
+  const [coverUri, setCoverUri] = useState<string | null>(null);
+
+  const pickImage = async () => {
+    const result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ['images'],
+      allowsEditing: true,
+      aspect: [3, 4],
+      quality: 0.8,
+    });
+
+    if (!result.canceled) {
+      setCoverUri(result.assets[0].uri);
+    }
+  };
+
+  const handleSave = () => {
+    if (!title.trim() || !author.trim() || !pages.trim()) {
+      Alert.alert("Erreur", "Veuillez remplir tous les champs obligatoires.");
+      return;
+    }
+
+    addBook({
+      title,
+      author,
+      totalPages: parseInt(pages) || 0,
+      currentPage: status === 'completed' ? parseInt(pages) || 0 : 0,
+      language,
+      status,
+      coverColor: cover,
+      coverImage: coverUri || undefined,
+    });
+
+    router.back();
+  };
 
   return (
     <SafeAreaView style={styles.safe}>
@@ -49,11 +91,11 @@ export default function AddBookScreen() {
 
       {/* ── Header ─────────────────────────────────────────────────────────── */}
       <View style={styles.header}>
-        <Pressable style={styles.cancelBtn} accessibilityLabel="Annuler">
+        <Pressable style={styles.cancelBtn} onPress={() => router.back()} accessibilityLabel="Annuler">
           <Text style={styles.cancelText}>Annuler</Text>
         </Pressable>
         <Text style={styles.headerTitle}>Nouveau livre</Text>
-        <Pressable style={styles.saveBtn} accessibilityLabel="Enregistrer">
+        <Pressable style={styles.saveBtn} onPress={handleSave} accessibilityLabel="Enregistrer">
           <Text style={styles.saveText}>Enregistrer</Text>
         </Pressable>
       </View>
@@ -66,9 +108,13 @@ export default function AddBookScreen() {
         {/* ── Cover picker ─────────────────────────────────────────────────── */}
         <View style={styles.coverSection}>
           <View style={[styles.coverPreview, { backgroundColor: cover }]}>
-            <Text style={styles.coverPreviewLetter}>
-              {title.charAt(0) || '?'}
-            </Text>
+            {coverUri ? (
+              <Image source={{ uri: coverUri }} style={styles.coverImage} />
+            ) : (
+              <Text style={styles.coverPreviewLetter}>
+                {title.charAt(0) || '?'}
+              </Text>
+            )}
           </View>
 
           {/* Color palette */}
@@ -86,7 +132,7 @@ export default function AddBookScreen() {
             ))}
           </View>
 
-          <Pressable style={styles.cameraBtn}>
+          <Pressable style={styles.cameraBtn} onPress={pickImage}>
             <Text style={styles.cameraBtnText}>📷  Prendre une photo</Text>
           </Pressable>
         </View>
@@ -189,6 +235,7 @@ export default function AddBookScreen() {
         {/* ── Save button (bottom) ──────────────────────────────────────────── */}
         <Pressable
           style={({ pressed }) => [styles.mainSaveBtn, pressed && { opacity: 0.88 }]}
+          onPress={handleSave}
           accessibilityLabel="Ajouter le livre"
           accessibilityRole="button"
         >
@@ -262,7 +309,12 @@ const styles = StyleSheet.create({
     borderRadius: Radii.lg,
     alignItems: 'center',
     justifyContent: 'center',
+    overflow: 'hidden',
     ...Shadows.active,
+  },
+  coverImage: {
+    width: '100%',
+    height: '100%',
   },
   coverPreviewLetter: {
     fontSize: 48,

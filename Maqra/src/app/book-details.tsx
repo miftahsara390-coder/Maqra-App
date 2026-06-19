@@ -145,10 +145,11 @@ export default function BookDetailScreen() {
             progress={progress}
             size={140}
             strokeWidth={12}
-            centerLabel={`${Math.round(progress * 100)}%`}
-            subLabel={`${MOCK_BOOK.currentPage} / ${MOCK_BOOK.totalPages}`}
             color={Colors.majorelleBlue}
-          />
+          >
+            <Text style={styles.progressCenterText}>{Math.round(progress * 100)}%</Text>
+            <Text style={styles.progressSubText}>{MOCK_BOOK.currentPage} / {MOCK_BOOK.totalPages}</Text>
+          </ProgressRing>
 
           {/* Page input */}
           <View style={styles.pageInputGroup}>
@@ -435,6 +436,17 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: Spacing.lg,
+  },
+  progressCenterText: {
+    fontSize: 24,
+    fontWeight: '700',
+    color: Colors.onSurface,
+  },
+  progressSubText: {
+    fontSize: 12,
+    fontWeight: '500',
+    color: Colors.outline,
+    marginTop: 4,
   },
   pageInputGroup: {
     flex: 1,

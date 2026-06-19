@@ -4,6 +4,7 @@ export const LANGUAGE_LABELS: Record<Language, string> = {
   fr:  'Français',
   ar:  'العربية',
   amz: 'ⵜⴰⵎⴰⵣⵉⵖⵜ',
+  en:  'English',
 };
 
 export const STATUS_LABELS: Record<ReadStatus, string> = {
@@ -17,6 +18,7 @@ export const LANGUAGE_OPTIONS: { value: Language | 'all'; label: string }[] = [
   { value: 'fr',  label: 'Français' },
   { value: 'ar',  label: 'العربية' },
   { value: 'amz', label: 'Tamazight' },
+  { value: 'en',  label: 'English' },
 ];
 
 export const STATUS_OPTIONS: { value: ReadStatus | 'all'; label: string }[] = [

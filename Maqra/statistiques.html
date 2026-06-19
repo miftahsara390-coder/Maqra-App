@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+
+<html class="light" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Maqra - Statistiques &amp; Profil</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600&amp;family=Hanken+Grotesk:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "primary-container": "#6050dc",
+                "surface-container-lowest": "#ffffff",
+                "primary-fixed": "#e4dfff",
+                "outline-variant": "#c8c4d7",
+                "surface-tint": "#5847d3",
+                "on-primary-container": "#e7e2ff",
+                "tertiary-container": "#007554",
+                "surface": "#fdf9f3",
+                "on-tertiary": "#ffffff",
+                "error-container": "#ffdad6",
+                "on-error-container": "#93000a",
+                "surface-variant": "#e6e2dc",
+                "secondary-container": "#fd876f",
+                "secondary-fixed": "#ffdad3",
+                "inverse-on-surface": "#f4f0ea",
+                "tertiary": "#005a40",
+                "on-secondary": "#ffffff",
+                "tertiary-fixed-dim": "#69dbad",
+                "on-primary-fixed": "#160066",
+                "error": "#ba1a1a",
+                "on-primary": "#ffffff",
+                "on-secondary-container": "#732010",
+                "outline": "#787586",
+                "primary-fixed-dim": "#c6bfff",
+                "tertiary-fixed": "#86f8c8",
+                "surface-container-high": "#ebe8e2",
+                "on-tertiary-fixed": "#002115",
+                "secondary-fixed-dim": "#ffb4a5",
+                "on-error": "#ffffff",
+                "on-background": "#1c1c18",
+                "surface-container-highest": "#e6e2dc",
+                "on-primary-fixed-variant": "#3f29bb",
+                "on-surface-variant": "#474554",
+                "on-tertiary-container": "#89fbcb",
+                "on-secondary-fixed-variant": "#802918",
+                "on-surface": "#1c1c18",
+                "background": "#fdf9f3",
+                "surface-bright": "#fdf9f3",
+                "surface-container-low": "#f7f3ed",
+                "surface-dim": "#dddad4",
+                "on-tertiary-fixed-variant": "#005139",
+                "inverse-surface": "#31302d",
+                "secondary": "#9f402d",
+                "surface-container": "#f1ede7",
+                "primary": "#4734c3",
+                "inverse-primary": "#c6bfff",
+                "on-secondary-fixed": "#3e0500"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+            },
+            "spacing": {
+                "lg": "24px",
+                "xs": "4px",
+                "margin-mobile": "20px",
+                "unit": "4px",
+                "sm": "8px",
+                "xl": "32px",
+                "gutter": "16px",
+                "md": "16px"
+            },
+            "fontFamily": {
+                "body-lg": ["Noto Sans"],
+                "display-lg": ["Hanken Grotesk"],
+                "headline-sm": ["Hanken Grotesk"],
+                "label-md": ["Noto Sans"],
+                "label-sm": ["Noto Sans"],
+                "body-md": ["Noto Sans"],
+                "headline-md": ["Hanken Grotesk"]
+            },
+            "fontSize": {
+                "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                "display-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
+                "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #fdf9f3;
+            -webkit-tap-highlight-color: transparent;
+        }
+        /* Moroccan Zellige Pattern - Assil inspired */
+        .zellige-backdrop {
+            background-color: #fdf9f3;
+            background-image: 
+                radial-gradient(circle at 100% 150%, #fdf9f3 24%, #f1ede7 25%, #f1ede7 28%, #fdf9f3 29%, #fdf9f3 36%, #f1ede7 36%, #f1ede7 40%, #fdf9f3 40%, #fdf9f3),
+                radial-gradient(circle at 0 150%, #fdf9f3 24%, #f1ede7 25%, #f1ede7 28%, #fdf9f3 29%, #fdf9f3 36%, #f1ede7 36%, #f1ede7 40%, #fdf9f3 40%, #fdf9f3),
+                radial-gradient(circle at 50% 100%, #f1ede7 10%, #fdf9f3 11%, #fdf9f3 23%, #f1ede7 24%, #f1ede7 30%, #fdf9f3 31%, #fdf9f3 43%, #f1ede7 44%, #f1ede7 50%, #fdf9f3 51%, #fdf9f3 63%, #f1ede7 64%, #f1ede7 71%, #fdf9f3 71%, #fdf9f3),
+                radial-gradient(circle at 100% 50%, #f1ede7 5%, #fdf9f3 6%, #fdf9f3 15%, #f1ede7 16%, #f1ede7 20%, #fdf9f3 21%, #fdf9f3 30%, #f1ede7 31%, #f1ede7 35%, #fdf9f3 36%, #fdf9f3 45%, #f1ede7 46%, #f1ede7 49%, #fdf9f3 50%, #fdf9f3),
+                radial-gradient(circle at 0 50%, #f1ede7 5%, #fdf9f3 6%, #fdf9f3 15%, #f1ede7 16%, #f1ede7 20%, #fdf9f3 21%, #fdf9f3 30%, #f1ede7 31%, #f1ede7 35%, #fdf9f3 36%, #fdf9f3 45%, #f1ede7 46%, #f1ede7 49%, #fdf9f3 50%, #fdf9f3);
+            background-size: 80px 40px;
+            opacity: 0.4;
+        }
+        .zellige-pattern {
+            background-image: url("https://www.transparenttextures.com/patterns/cubes.png");
+            opacity: 0.05;
+        }
+        .custom-shadow {
+            box-shadow: 0px 4px 20px rgba(0,0,0,0.04);
+        }
+        .active-tab-indicator {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .chart-bar {
+            transition: height 1s ease-out;
+        }
+    </style>
+<style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-surface bg-background min-h-screen pb-32 relative">
+<!-- Background Texture Layer -->
+<div class="fixed inset-0 z-0 zellige-backdrop pointer-events-none"></div>
+<!-- Top App Bar -->
+<header class="bg-surface/90 backdrop-blur-md fixed top-0 w-full z-50 flex justify-between items-center px-margin-mobile h-16 border-b border-surface-container">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-low transition-colors active:scale-95 duration-150">
+<span class="material-symbols-outlined text-primary">menu</span>
+</button>
+<h1 class="font-display-lg text-display-lg text-primary tracking-tight">Maqra</h1>
+<div class="w-10 h-10 rounded-full bg-surface-container-highest overflow-hidden border border-outline-variant">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="A professional studio portrait of a young man with a friendly expression, set against a soft, sun-drenched architectural background with warm terracotta tones. The lighting is bright and airy, reflecting a modern light-mode aesthetic. The style is clean and sophisticated, utilizing a shallow depth of field to keep the focus on the subject's face while hinting at a serene Mediterranean environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCp0ZUL2zAdG1b3V_9BRloDhkKkZZfqxTKFCrFR-8N1Que01r0W96HHC8mQMeF2zv_yJ4xTVtAN8edBxtTNxD_vmCYzRrJXexsKHb_sCRKXCvlbBuy1Gl22hcnEBd2TN80Sp9rkkzwwcrxEEWr-PqelCD7y0QkPSsRj5GernPyPk3QmUvditGzehG_y8q9KIoEbNOKt5hoMCQ7d_bT8nsH46ZoJEqVEwizWTTvbp9rnM-SPFcZlmSGXRsaXOms9sa3RGQjTD_aOquQ"/>
+</div>
+</header>
+<main class="relative z-10 pt-24 px-margin-mobile max-w-md mx-auto">
+<!-- Profile Section -->
+<section class="flex flex-col items-center mb-xl">
+<div class="relative group">
+<div class="w-24 h-24 rounded-full bg-surface-container-high flex items-center justify-center border-4 border-white custom-shadow relative overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Close up portrait of a young man with a slight smile, framed in a circular profile container. The scene is bright and naturally lit, evoking a Mediterranean morning. Warm cream and sand tones dominate the background, consistent with a high-end personal library or study environment. The overall feel is approachable, focused, and digitally refined." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjjn7bSRZEsabrh4Q6ClQdEYLH-XisoGs-4xWRgisDtF6X1d7H2uI4RX1j8rQmA0Hwoc1Z5hMEh4g_Z2iA7xEZGS2bgWC6EKKiSkqioDL6G3L4DKdXCjPHgZ9botCM30dBPQGhInpupw-2-ypDHeV-VxDFE5oVPeQDR1gLLtbV-pKIBqGkxJE1OgVv0YGfHv18Vnz3CdhAt6PLjVzJRLD7_6oVbAn4CiZyfw4POW3u7S0zI9rxUM746nSUfH2Xy2xSXbMf0tvUQFE"/>
+<div class="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer">
+<span class="material-symbols-outlined text-white">photo_camera</span>
+</div>
+</div>
+<div class="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-secondary text-on-secondary px-3 py-1 rounded-full text-label-sm shadow-md whitespace-nowrap flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+                    7 jours de streak
+                </div>
+</div>
+<h2 class="mt-6 font-headline-md text-headline-md text-on-surface">Anas</h2>
+<p class="font-body-md text-on-surface-variant">Lecteur passionné</p>
+</section>
+<!-- Stats Grid -->
+<section class="grid grid-cols-2 gap-md mb-xl">
+<!-- Total Books -->
+<div class="bg-white/80 backdrop-blur-sm p-md rounded-xl custom-shadow border border-[#E8E2D9] relative overflow-hidden">
+<div class="zellige-pattern absolute inset-0 pointer-events-none"></div>
+<span class="material-symbols-outlined text-primary mb-sm">menu_book</span>
+<p class="font-headline-md text-headline-md text-on-surface">12</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Livres Lus</p>
+</div>
+<!-- Total Pages -->
+<div class="bg-white/80 backdrop-blur-sm p-md rounded-xl custom-shadow border border-[#E8E2D9] relative overflow-hidden">
+<div class="zellige-pattern absolute inset-0 pointer-events-none"></div>
+<span class="material-symbols-outlined text-tertiary mb-sm">description</span>
+<p class="font-headline-md text-headline-md text-on-surface">3,450</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Pages Lues</p>
+</div>
+<!-- Reading Time -->
+<div class="bg-white/80 backdrop-blur-sm p-md rounded-xl custom-shadow border border-[#E8E2D9] relative overflow-hidden">
+<div class="zellige-pattern absolute inset-0 pointer-events-none"></div>
+<span class="material-symbols-outlined text-secondary mb-sm">schedule</span>
+<p class="font-headline-md text-headline-md text-on-surface">48h</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Temps Total</p>
+</div>
+<!-- Streak -->
+<div class="bg-white/80 backdrop-blur-sm p-md rounded-xl custom-shadow border border-[#E8E2D9] relative overflow-hidden">
+<div class="zellige-pattern absolute inset-0 pointer-events-none"></div>
+<span class="material-symbols-outlined text-orange-500 mb-sm" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<p class="font-headline-md text-headline-md text-on-surface">7</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Jours de Streak</p>
+</div>
+</section>
+<!-- Monthly Chart -->
+<section class="bg-white/80 backdrop-blur-sm p-lg rounded-xl custom-shadow border border-[#E8E2D9] mb-xl">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-lg">Livres terminés</h3>
+<div class="flex items-end justify-between h-40 gap-xs">
+<div class="flex-1 flex flex-col items-center gap-sm">
+<div class="chart-bar w-full bg-tertiary-fixed rounded-t-lg" style="height: 40%"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Jan</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-sm">
+<div class="chart-bar w-full bg-tertiary-fixed rounded-t-lg" style="height: 60%"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Fév</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-sm">
+<div class="chart-bar w-full bg-tertiary-fixed rounded-t-lg" style="height: 30%"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Mar</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-sm">
+<div class="chart-bar w-full bg-tertiary-container rounded-t-lg" style="height: 80%"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-bold">Avr</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-sm">
+<div class="chart-bar w-full bg-tertiary-fixed rounded-t-lg" style="height: 50%"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Mai</span>
+</div>
+<div class="flex-1 flex flex-col items-center gap-sm">
+<div class="chart-bar w-full bg-tertiary-fixed rounded-t-lg" style="height: 70%"></div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Jun</span>
+</div>
+</div>
+</section>
+<!-- Recent Sessions History -->
+<section class="mb-lg">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-md">Sessions récentes</h3>
+<div class="space-y-sm">
+<!-- Session Item 1 -->
+<div class="bg-white/80 backdrop-blur-sm p-md rounded-xl custom-shadow border border-[#E8E2D9] flex items-center gap-md">
+<div class="w-12 h-16 bg-surface-container rounded overflow-hidden flex-shrink-0">
+<img alt="Book Cover" class="w-full h-full object-cover" data-alt="A minimalist book cover design featuring clean typography on a textured cream paper background. The overall aesthetic is elegant and literary, with soft shadows and a focused composition that emphasizes intellectual depth. The color palette is composed of muted earth tones and deep charcoal, fitting the Neo-Mediterranean style of the app." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA08fVZoopBdqi2XBfvo_J32Dq-rLzJ3SWPokZjFsjKMHaLww-lH0D3iYEAr9QHGAld6B8qZ6xlqAII-EemGEEK0HPinHqBwGr8HgYnmFmU8hlqoMrefVbYb841npnedrraFABi3BZHlTYVDkaw-pH6OE3vWbaPcSe1Gja4HGmNjjLQSjPy5C_V8l-VZkpshP5WF4oExiaCd0v7ngv0ZG88O_Lcf6Kc6-lG-qgJ_nL7rwyvGaXjlIpPDbh7l3YVK9--v8RXypNxjIM"/>
+</div>
+<div class="flex-grow">
+<h4 class="font-label-md text-label-md text-on-surface">Le Petit Prince</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Aujourd'hui • 45 min</p>
+</div>
+<div class="text-tertiary font-label-sm">+24p</div>
+</div>
+<!-- Session Item 2 -->
+<div class="bg-white/80 backdrop-blur-sm p-md rounded-xl custom-shadow border border-[#E8E2D9] flex items-center gap-md">
+<div class="w-12 h-16 bg-surface-container rounded overflow-hidden flex-shrink-0">
+<img alt="Book Cover" class="w-full h-full object-cover" data-alt="Close up of a classic hardcover book with gold foil detailing on the spine, resting on a rustic wooden table in warm afternoon sunlight. The atmosphere is cozy and studious, with soft-focus dust motes dancing in the light. The lighting creates a tactile, premium feel that aligns with the brand's focus on reading as a sanctuary." src="https://lh3.googleusercontent.com/aida-public/AB6AXuClt0UnNFAy-PqE7xrmS_l-uk9FrDZR78pRqP1erFYAcuFu1JgNxv7KSCOb6PgsZB_nLGXI-_VfDOTGAeVBvebLXTt9S7GYIJHGWpAgCYus1SmecoZhB5v8zReDy5zcI8ImQboAr9YaphfKQil_jYQqtvx818rg-3FICNB_9JoLiJFLn_YgaajcOxNH4x8KmV9uC875vD9nw-RXUa-5-HSQpMZ5PWYJTGGsZadLxCEk7g-cyFghpH5vaJcmgstG2lWWsSR5qXvCyw4"/>
+</div>
+<div class="flex-grow">
+<h4 class="font-label-md text-label-md text-on-surface">L'Étranger</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Hier • 1h 15 min</p>
+</div>
+<div class="text-tertiary font-label-sm">+42p</div>
+</div>
+<!-- Session Item 3 -->
+<div class="bg-white/80 backdrop-blur-sm p-md rounded-xl custom-shadow border border-[#E8E2D9] flex items-center gap-md">
+<div class="w-12 h-16 bg-surface-container rounded overflow-hidden flex-shrink-0">
+<img alt="Book Cover" class="w-full h-full object-cover" data-alt="A sophisticated book cover featuring a central geometric pattern inspired by Islamic art, set against a dark blue background. The lines are precise and modern, creating a balance between heritage and contemporary design. The lighting is focused and dramatic, highlighting the texture of the book's surface and the depth of the pattern." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmqKyxRFmig4BXHzLan7oqaeRZQWN6S0uGIdVbFw83seYcuAW6NcH46v9QW3ZBePsuj2aBcEBipwEWTQ75wO9GEKNhrUOWUGoyP-AZvWYwAkrBUlyFyiMc8tVLPjXjGiTRXiPfyvGOmyvPAp7x3TC-spZGqFFA6YbNlX9hD8ETSO8MLmLkHU3mJy4CwQifdyoxkDIfNAdGDjmPGoohs2COC8VurKVT44_nfnvX-BF4v3WrkAUKxZLtJl4c-JqOdSCjRxUjObDJDzQ"/>
+</div>
+<div class="flex-grow">
+<h4 class="font-label-md text-label-md text-on-surface">L'Alchimiste</h4>
+<p class="font-label-sm text-label-sm text-on-surface-variant">24 Mai • 30 min</p>
+</div>
+<div class="text-tertiary font-label-sm">+15p</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Bar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center pt-2 pb-safe px-4 bg-surface/90 backdrop-blur-md shadow-[0px_-4px_20px_rgba(0,0,0,0.04)] border-t border-surface-container">
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:text-primary transition-colors active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined">auto_stories</span>
+<span class="font-label-sm text-label-sm">Library</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 hover:text-primary transition-colors active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined">timer</span>
+<span class="font-label-sm text-label-sm">Timer</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 active:scale-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">leaderboard</span>
+<span class="font-label-sm text-label-sm">Stats</span>
+</a>
+</nav>
+<script>
+        // Simple interaction for the chart bars
+        document.addEventListener('DOMContentLoaded', () => {
+            const bars = document.querySelectorAll('.chart-bar');
+            bars.forEach((bar, index) => {
+                const targetHeight = bar.style.height;
+                bar.style.height = '0%';
+                setTimeout(() => {
+                    bar.style.height = targetHeight;
+                }, 100 * index);
+            });
+        });
+
+        // Add active states to buttons
+        const navItems = document.querySelectorAll('nav a');
+        navItems.forEach(item => {
+            item.addEventListener('click', (e) => {
+                // In a real app, this would navigate
+                // For demo, we just prevent default
+                if (item.getAttribute('href') === '#') e.preventDefault();
+            });
+        });
+    </script>
+</body></html>
